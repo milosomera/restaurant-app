@@ -28,7 +28,7 @@ class EditItem extends React.Component {
     }
 
     submitEditBtn = () => {
-        axios.put("http://localhost:8080/items/" + this.props.item._id, {
+        axios.put("https://restaurant-application-server.herokuapp.com/items/" + this.props.item._id, {
             name: this.state.itemName,
             price: this.state.itemPrice,
             image: this.state.itemImage
