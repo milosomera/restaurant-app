@@ -48,7 +48,7 @@ class RegistrationForm extends React.Component {
             })
         }
         if((this.state.username !== "") && (this.state.password !== "") && (this.state.confirmPassword === this.state.password)) {
-            axios.post("http://localhost:8080/users", {
+            axios.post("https://restaurant-application-server.herokuapp.com/users", {
                 user: {
                     username: this.state.username,
                     password: this.state.password,

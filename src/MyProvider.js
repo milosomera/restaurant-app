@@ -39,7 +39,7 @@ class MyProvider extends React.Component {
   };
 
   addItemBtn = (newItem) => {
-    axios.post("http://localhost:8080/items", {
+    axios.post("https://restaurant-application-server.herokuapp.com/items", {
         item: newItem
     }).then(res => {
         this.setState({
@@ -72,7 +72,7 @@ class MyProvider extends React.Component {
     this.setState({
       showCards: removeItem
     })
-    axios.delete("http://localhost:8080/items/" + e.target.id)
+    axios.delete("https://restaurant-application-server.herokuapp.com/items/" + e.target.id)
   }
 
   qtyChangeHandler = (id, qty) => {
@@ -93,7 +93,7 @@ class MyProvider extends React.Component {
   }
 
   checkoutBtn = () => {
-    axios.post("http://localhost:8080/orders", 
+    axios.post("https://restaurant-application-server.herokuapp.com/orders", 
     {
       total: this.state.total,
       items: this.state.orders
@@ -114,7 +114,7 @@ class MyProvider extends React.Component {
         role: "Admin"
       }
     })
-    axios.post("http://localhost:8080/login", {
+    axios.post("https://restaurant-application-server.herokuapp.com/login", {
         username: username,
         password: password
     })
@@ -162,14 +162,14 @@ class MyProvider extends React.Component {
   }
 
   componentDidMount() {
-    axios("http://localhost:8080/items")
+    axios("https://restaurant-application-server.herokuapp.com/items")
     .then(res => {
       let items = res.data;
       this.setState({
         showCards: items
       })
     })
-    axios("http://localhost:8080/categories")
+    axios("https://restaurant-application-server.herokuapp.com/categories")
     .then(res => {
       this.categories = res.data;
       let categories = res.data;
